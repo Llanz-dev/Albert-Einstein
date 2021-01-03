@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: ease 0.2s;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Fredoka One", cursive;
+  background-color: #1c1d27;
+}
+.score,
+.timer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.score h2,
+.timer h2 {
+  border: 1px solid black;
+  border-top: none;
+  padding: 0.5rem 1rem;
+  background-color: #f7d794;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.2rem;
+}
+h1,
+h2 {
+  font-weight: 100;
+}
+header,
+.question,
+.choose-list {
+  margin: 1rem 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 2rem;
+}
+.container-content {
+  padding: 1rem;
+  width: 60%;
+  border-radius: 5px;
+  background-color: #63cdda;
+}
+.choose-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.choose-list div {
+  border-radius: 5px;
+  width: 40%;
+  margin: 0.2rem 0;
+  padding: 0.5rem;
+  background-color: white;
+  border: 2px solid rgb(201, 201, 201);
+}
+.choose-list div:hover {
+  cursor: pointer;
+  background-color: #dddddd;
+}
+.options.wrongAnswer {
+  border: 2px solid red;
+  background-color: rgb(255, 123, 123);
+}
+.options.correctAnswer {
+  border: 2px solid green;
+  background-color: rgb(129, 255, 129);
+}
+.options.disabled {
+  pointer-events: none;
+}
+button {
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 1rem;
+  font-size: 2rem;
+  font-family: "Fredoka One", cursive;
+  font-weight: lighter;
+  background-color: #f7d794;
+}
+button:hover {
+  background-color: #ffd67d;
+}
+.true {
+  background-color: #05c46b;
+}
+.false {
+  background-color: #db4c4c;
+}
+.true:hover {
+  background-color: #0be881;
+}
+.false:hover {
+  background-color: #ff6767;
+}
+footer {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+p {
+  font-size: 1.5rem;
+  border: 3px solid black;
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+.score h2 {
+  border: none;
+}
