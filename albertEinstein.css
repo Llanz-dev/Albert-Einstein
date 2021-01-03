@@ -437,6 +437,7 @@ footer {
   height: 50vh;
   background-color: wheat;
 }
+/* Quiz */
 .quiz-box {
   width: 60%;
 }
@@ -447,6 +448,11 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  transition: ease 0.2s;
+}
+.quiz-content:hover {
+  cursor: pointer;
+  box-shadow: 6px 7px 13px black;
 }
 .quiz-content div {
   width: 50%;

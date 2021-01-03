@@ -1,99 +1,102 @@
+const quizBox = document.querySelector(".quiz-box");
+quizBox.onclick = () => {
+  window.open("einsteinQuiz/index.html", "_blank");
+};
 // Night mode Variables
 let stateMode = "click";
 const nightMode = document.getElementById("night-mode");
 
 //Check for the status the moment the site will load
 window.onload = () => {
-  if(getModeStatus() == 'lightMode'){
-    light_mode()
-  }else if(getModeStatus() == 'nightMode') {
-    night_mode()
+  if (getModeStatus() == "lightMode") {
+    light_mode();
+  } else if (getModeStatus() == "nightMode") {
+    night_mode();
   }
-}
+};
 
 //Get the mode status in the localstorage
 let getModeStatus = () => {
-  return localStorage.getItem('modeStatus')
-}
+  return localStorage.getItem("modeStatus");
+};
 
 //Set the mode status in the localstorage
 let setModeStatus = (status) => {
-    localStorage.setItem('modeStatus', status)
-}
+  localStorage.setItem("modeStatus", status);
+};
 
 // Night Mode Codes
 let night_mode = () => {
-    navHover("#fff", "#4b7bec");
-    document.body.style.backgroundColor = "#232426";
-    document.getElementById("navbar").style.backgroundColor = "#3d3e40";
-    document.querySelectorAll("[orange]").forEach((colorOrange) => {
-      colorOrange.style.color = "#ff8800";
-    });
-    document.querySelectorAll("[lightgreen]").forEach((colorlightGreen) => {
-      colorlightGreen.style.color = "#3dff98";
-    });
-    document.querySelectorAll("[white]").forEach((colorWhite) => {
-      colorWhite.style.color = "#ffffff";
-    });
-    document.querySelectorAll("[black]").forEach((colorBlack) => {
-      colorBlack.style.color = "black";
-    });
-    document.getElementById("night-mode").style.borderColor = "white";
-    document.getElementById("night-icon").style.color = "white";
-    document.querySelector("p").style.color = "white";
-    document.querySelectorAll("i").forEach((i_Tag) => {
-      i_Tag.style.color = "white";
-    });
-    document.querySelectorAll("[icon]").forEach((icon) => {
-      icon.style.color = "#575757";
-    });
-    document.querySelectorAll("[darkBlue]").forEach((darkBlue) => {
-      darkBlue.style.color = "#4b7bec";
-    });
-    document.querySelectorAll("[whiteBorder]").forEach((border) => {
-      border.style.borderColor = "white";
-    });
-    stateMode = "not";
-
-}
+  navHover("#fff", "#4b7bec");
+  document.body.style.backgroundColor = "#232426";
+  document.getElementById("navbar").style.backgroundColor = "#3d3e40";
+  document.querySelectorAll("[orange]").forEach((colorOrange) => {
+    colorOrange.style.color = "#ff8800";
+  });
+  document.querySelectorAll("[lightgreen]").forEach((colorlightGreen) => {
+    colorlightGreen.style.color = "#3dff98";
+  });
+  document.querySelectorAll("[white]").forEach((colorWhite) => {
+    colorWhite.style.color = "#ffffff";
+  });
+  document.querySelectorAll("[black]").forEach((colorBlack) => {
+    colorBlack.style.color = "black";
+  });
+  document.getElementById("night-mode").style.borderColor = "white";
+  document.getElementById("night-icon").style.color = "white";
+  document.querySelector("p").style.color = "white";
+  document.querySelectorAll("i").forEach((i_Tag) => {
+    i_Tag.style.color = "white";
+  });
+  document.querySelectorAll("[icon]").forEach((icon) => {
+    icon.style.color = "#575757";
+  });
+  document.querySelectorAll("[darkBlue]").forEach((darkBlue) => {
+    darkBlue.style.color = "#4b7bec";
+  });
+  document.querySelectorAll("[whiteBorder]").forEach((border) => {
+    border.style.borderColor = "white";
+  });
+  stateMode = "not";
+};
 
 // Light Mode Codes
 let light_mode = () => {
-    navHover("#4b7bec", "#4b7bec");
-    document.body.style.backgroundColor = "#f8fbff";
-    document.getElementById("navbar").style.backgroundColor = "#fffafa";
-    document.querySelectorAll("[orange]").forEach((colorBlack) => {
-      colorBlack.style.color = "black";
-    });
-    document.querySelectorAll("[lightgreen]").forEach((colorlightGreen) => {
-      colorlightGreen.style.color = "black";
-    });
-    document.querySelectorAll("[white]").forEach((colorWhite) => {
-      colorWhite.style.color = "black";
-    });
+  navHover("#4b7bec", "#4b7bec");
+  document.body.style.backgroundColor = "#f8fbff";
+  document.getElementById("navbar").style.backgroundColor = "#fffafa";
+  document.querySelectorAll("[orange]").forEach((colorBlack) => {
+    colorBlack.style.color = "black";
+  });
+  document.querySelectorAll("[lightgreen]").forEach((colorlightGreen) => {
+    colorlightGreen.style.color = "black";
+  });
+  document.querySelectorAll("[white]").forEach((colorWhite) => {
+    colorWhite.style.color = "black";
+  });
 
-    document.getElementById("night-mode").style.borderColor = "black";
-    document.getElementById("night-icon").style.color = "black";
-    document.querySelector("p").style.color = "black";
-    document.querySelectorAll("i").forEach((i_Tag) => {
-      i_Tag.style.color = "#575757";
-    });
-    document.querySelectorAll("a").forEach((a_Tag) => {
-      a_Tag.style.color = "#4b7bce";
-    });
-    document.querySelectorAll("[whiteBorder]").forEach((border) => {
-      border.style.borderColor = "black";
-    });
-    stateMode = "click";
-}
+  document.getElementById("night-mode").style.borderColor = "black";
+  document.getElementById("night-icon").style.color = "black";
+  document.querySelector("p").style.color = "black";
+  document.querySelectorAll("i").forEach((i_Tag) => {
+    i_Tag.style.color = "#575757";
+  });
+  document.querySelectorAll("a").forEach((a_Tag) => {
+    a_Tag.style.color = "#4b7bce";
+  });
+  document.querySelectorAll("[whiteBorder]").forEach((border) => {
+    border.style.borderColor = "black";
+  });
+  stateMode = "click";
+};
 
 nightMode.addEventListener("click", () => {
   if (stateMode === "click") {
-    setModeStatus('nightMode')
-    night_mode()
+    setModeStatus("nightMode");
+    night_mode();
   } else {
-    setModeStatus('lightMode')
-    light_mode()
+    setModeStatus("lightMode");
+    light_mode();
   }
 });
 
