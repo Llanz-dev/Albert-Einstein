@@ -1,49 +1,92 @@
+const start_Container = document.getElementById("start-container");
+const startButton = document.getElementById("startQuiz");
+const info_Container = document.getElementById("info-container");
+const exitButton = document.getElementById("exit-button");
+const continueButton = document.getElementById("continue-button");
+const result_Container = document.getElementById("result-container");
+const judgementMessage = document.getElementById("messageScore");
+const scoreResult = document.getElementById("scoreResult");
+const quitButton = document.getElementById("quitQuiz");
+const replayButton = document.getElementById("replayQuiz");
+const timer_Container = document.getElementById("timer");
+const quiz_Container = document.getElementById("quiz-container");
 const score_Container = document.getElementById("score");
 const question_Container = document.getElementById("question");
 const option_Container = document.getElementById("choose-list");
-const questionNumber_Container = document.querySelector("footer");
-const nextButton = document.querySelector("button");
+const questionNumber_Container = document.getElementById("number-question");
+const nextQuestion = document.getElementById("next-question");
 const countDown = document.getElementById("timerShow");
 let txt_score = document.getElementById("txt-score");
 let score = 0;
+let resultScore = 0;
 let questionNumber = 1;
 let questionIndex = 0;
-
-let shuffleArray = (arr) => {
-  return arr.sort(() => 0.5 - Math.random())
-}
-
-let questions_shuffle = shuffleArray(dataList)
-
-
-let startTimer = function (max_time, element){
-  let timer = setInterval(() => {
-    element.innerHTML = max_time--;
-    if(max_time == -1){
-      
-      //Code here if the timer is finish
-      alert("Lose")
-      clearInterval(timer)
-    }
-  },1000)
-}
-
-window.onload = () => {
+// start_Container.classList.add("startShow");
+// Start Button
+startButton.onclick = () => {
+  info_Container.classList.add("infoShow");
+};
+// Info
+exitButton.onclick = () => {
+  info_Container.classList.remove("infoShow");
+};
+continueButton.onclick = () => {
+  info_Container.classList.remove("infoShow");
+  quiz_Container.classList.add("quizShow");
+  timer_Container.classList.add("timerShow");
   startTimer(30, countDown);
-}
-
-nextButton.onclick = () => {
-  if (questionIndex < dataList.length - 1) {
-    questionIndex++;
-    questionNumber++;
-    showQuestion(questionIndex);
-    questionCounter(questionNumber);
-   
-  } else {
-    console.log("Quiz completed");
-  }
 };
 
+let shuffleArray = (arr) => {
+  return arr.sort(() => 0.5 - Math.random());
+};
+
+let questions_shuffle = shuffleArray(dataList);
+
+let startTimer = function (max_time, element) {
+  let timer = setInterval(() => {
+    element.innerHTML = max_time--;
+    if (max_time == -1) {
+      //Code here if the timer is finish
+      // alert("Lose");
+      clearInterval(timer);
+    }
+  }, 1000);
+  nextQuestion.onclick = () => {
+    if (questionIndex < dataList.length - 1) {
+      questionIndex++;
+      questionNumber++;
+      showQuestion(questionIndex);
+      questionCounter(questionNumber);
+      if (questionNumber === 5) {
+        nextQuestion.innerHTML = "Finish";
+      } else {
+        nextQuestion.innerHTML = "Next";
+      }
+    } else {
+      result_Container.classList.add("resultShow");
+      quiz_Container.classList.remove("quizShow");
+      timer_Container.classList.remove("timerShow");
+      scoreResult.innerHTML = score;
+      txt_score.innerHTML = 0;
+      clearInterval(timer);
+      score = 0;
+      questionIndex = 0;
+      questionNumber = 1;
+      allQuiz(questionNumber, questionIndex);
+      console.log("Quiz completed");
+    }
+  };
+};
+
+quitButton.onclick = () => {
+  if (questionNumber === 5) {
+    nextQuestion.innerHTML = "Finish";
+  } else {
+    nextQuestion.innerHTML = "Next";
+  }
+  result_Container.classList.remove("resultShow");
+};
 
 let showQuestion = (questionIndex) => {
   let options_shuffle = shuffleArray(dataList[questionIndex].options);
@@ -59,7 +102,7 @@ let showQuestion = (questionIndex) => {
     "</div>";
   question_Container.innerHTML =
     "<h2>" +
-    (questionIndex + 1) + 
+    (questionIndex + 1) +
     ". " +
     questions_shuffle[questionIndex].question +
     "</h2>";
@@ -68,7 +111,6 @@ let showQuestion = (questionIndex) => {
     allOptions.setAttribute("onclick", "optionSelected(this)");
   });
 };
-
 let optionSelected = (answer) => {
   const userAnswer = answer.textContent;
   const correctAnswer = dataList[questionIndex].answer;
@@ -76,11 +118,9 @@ let optionSelected = (answer) => {
   if (userAnswer == correctAnswer) {
     score++;
     txt_score.innerHTML = score;
-    console.log(userAnswer + " is correct");
     answer.classList.add("correctAnswer");
   } else {
     answer.classList.add("wrongAnswer");
-    console.log(userAnswer + " is wrong");
     for (let index = 0; index < getAllOptions; index++) {
       if (option_Container.children[index].textContent == correctAnswer) {
         option_Container.children[index].setAttribute(
@@ -99,5 +139,8 @@ let questionCounter = (questionNumber) => {
     "<p>" + questionNumber + " out of " + dataList.length + "</p>";
 };
 
-questionCounter(questionNumber);
-showQuestion(questionIndex);
+let allQuiz = (questionNumber, questionIndex) => {
+  questionCounter(questionNumber);
+  showQuestion(questionIndex);
+};
+allQuiz(questionNumber, questionIndex);

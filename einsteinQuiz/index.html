@@ -1,42 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
-        <title>Play Quiz</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Play Quiz</title>
+</head>
 
-    <body>
-        <!-- Score -->
-        <div class="timer" id="timer">
-            <h2>Timer: <span id="timerShow">30</span>s</h2>
-        </div>
+<body>
+    <!-- Start -->
+    <div class="start-container startShow" id="start-container">
+        <button id="startQuiz">Start Quiz</button>
+    </div>
 
-        <!-- Quiz -->
-        <div class="container">
-            <div class="container-content">
-                <header>
-                    <div class="score" id="score">
-                        <h2>Score: <span id="txt-score">0</span></h2>
-                    </div>
-                </header>
-                <div class="question" id="question">
+    <!-- Info  -->
+    <div class="info-container" id="info-container">
+        <header>
+            <h3>Rules of this Quiz</h3>
+        </header>
+
+        <section class="info-list">
+            <p class="info">1. You will have 30 seconds to answer this quiz.</p>
+            <p class="info">2. Once you select your answer. It can't be undone.</p>
+            <p class="info">3. You can't exit from the Quiz while you're playing.</p>
+            <p class="info">4. You'll get points on the basis of your answer.</p>
+        </section>
+        <footer>
+            <button id="exit-button" class="exit-button">Exit Quiz</button>
+            <button id="continue-button" class="continue-button">Continue</button>
+        </footer>
+    </div>
+
+    <div class="timer" id="timer">
+        <h2>Timer: <span id="timerShow">30</span>s</h2>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-container" id="quiz-container">
+
+        <div class="quiz-content">
+            <header>
+                <div class="score" id="score">
+                    <h2>Score: <span id="txt-score">0</span></h2>
                 </div>
-                <div class="choose-list" id="choose-list">
-                </div>
-                <button>Next</button>
-                <footer>
-
-                </footer>
+            </header>
+            <div class="question" id="question">
             </div>
+            <div class="choose-list" id="choose-list">
+            </div>
+            <footer>
+                <button id="next-question">Next</button>
+                <div class="number-question" id="number-question"></div>
+            </footer>
         </div>
+    </div>
 
-        <script src="question.js"></script>
-        <script src="script.js"></script>
-    </body>
+    <!-- Result -->
+    <div class="result-container" id="result-container">
+        <div class="crown">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="quiz-text" id="quiz-text">
+            <h3>You've completed the Quiz!</h3>
+            <p id="messageScore">You got <span id='scoreResult'></span> out of 5</p>
+        </div>
+        <footer>
+            <button class="replayQuiz" id="replayQuiz">Replay Quiz</button>
+            <button class="quitQuiz" id="quitQuiz">Quit Quiz</button>
+        </footer>
+    </div>
+
+    <script src="question.js"></script>
+    <script src="script.js"></script>
+</body>
 
 </html>
