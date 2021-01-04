@@ -5,7 +5,7 @@ const exitButton = document.getElementById("exit-button");
 const continueButton = document.getElementById("continue-button");
 const result_Container = document.getElementById("result-container");
 const judgementMessage = document.getElementById("messageScore");
-const scoreResult = document.getElementById("scoreResult");
+const scoreResult = document.getElementById("scoreResult"); 
 const quitButton = document.getElementById("quitQuiz");
 const replayButton = document.getElementById("replayQuiz");
 const timer_Container = document.getElementById("timer");
@@ -21,30 +21,11 @@ let score = 0;
 let resultScore = 0;
 let questionNumber = 1;
 let questionIndex = 0;
-// start_Container.classList.add("startShow");
-// Start Button
-startButton.onclick = () => {
-  info_Container.classList.add("infoShow");
-};
-// Info
-exitButton.onclick = () => {
-  info_Container.classList.remove("infoShow");
-};
-continueButton.onclick = () => {
-  info_Container.classList.remove("infoShow");
-  quiz_Container.classList.add("quizShow");
-  timer_Container.classList.add("timerShow");
-  startTimer(30, countDown);
-};
-
-let shuffleArray = (arr) => {
-  return arr.sort(() => 0.5 - Math.random());
-};
-
-let questions_shuffle = shuffleArray(dataList);
+let isAnswered = false;
+let timer;
 
 let startTimer = function (max_time, element) {
-  let timer = setInterval(() => {
+  timer = setInterval(() => {
     element.innerHTML = max_time--;
     if (max_time == -1) {
       //Code here if the timer is finish
@@ -52,31 +33,74 @@ let startTimer = function (max_time, element) {
       clearInterval(timer);
     }
   }, 1000);
+}
+//Reusable on game function 
+let ongame = () => {
+  info_Container.classList.remove("infoShow");
+  quiz_Container.classList.add("quizShow");
+  timer_Container.classList.add("timerShow");
+  startTimer(30, countDown);
+}
+// Start Button
+startButton.onclick = () => {
+  info_Container.classList.add("infoShow");
+};
+// Info
+exitButton.onclick = () => {
+  info_Container.classList.remove("infoShow");  
+};
+continueButton.onclick = () => {
+    ongame();
+};
+let shuffleArray = (arr) => {
+  return arr.sort(() => 0.5 - Math.random());
+};
+
+let questions_shuffle = shuffleArray(dataList);
   nextQuestion.onclick = () => {
-    if (questionIndex < dataList.length - 1) {
-      questionIndex++;
-      questionNumber++;
-      showQuestion(questionIndex);
-      questionCounter(questionNumber);
+    if (questionIndex < dataList.length - 1) { // Lanz anu ni sya nga coded mn
+      
+      if(isAnswered){
+        questionIndex++;
+        questionNumber++;
+        showQuestion(questionIndex);
+        questionCounter(questionNumber);
+      } else {
+        alert("Wla")
+      }
+     
+      if (questionNumber === 5) {
+        isAnswered = false;
+        nextQuestion.innerHTML = "Finish";
+      } else {
+        isAnswered = false;
+        nextQuestion.innerHTML = "Next";
+      }
+    } else if(isAnswered){      
+      score = 0; 
+      questionIndex = 0;
+      questionNumber = 1;
+      result_Container.classList.add("resultShow"); 
+      quiz_Container.classList.remove("quizShow"); 
+      timer_Container.classList.remove("timerShow"); 
+      scoreResult.innerHTML = score; 
+      clearInterval(timer);
+      countDown.innerHTML = "30";
+      txt_score.innerHTML = 0;      
       if (questionNumber === 5) {
         nextQuestion.innerHTML = "Finish";
       } else {
         nextQuestion.innerHTML = "Next";
       }
-    } else {
-      result_Container.classList.add("resultShow");
-      quiz_Container.classList.remove("quizShow");
-      timer_Container.classList.remove("timerShow");
-      scoreResult.innerHTML = score;
-      txt_score.innerHTML = 0;
-      clearInterval(timer);
-      score = 0;
-      questionIndex = 0;
-      questionNumber = 1;
       allQuiz(questionNumber, questionIndex);
       console.log("Quiz completed");
     }
   };
+
+replayButton.onclick = () => {
+  result_Container.classList.remove("resultShow");
+  isAnswered = false;
+  ongame();
 };
 
 quitButton.onclick = () => {
@@ -112,6 +136,7 @@ let showQuestion = (questionIndex) => {
   });
 };
 let optionSelected = (answer) => {
+  isAnswered = true;
   const userAnswer = answer.textContent;
   const correctAnswer = dataList[questionIndex].answer;
   const getAllOptions = option_Container.children.length;
@@ -119,7 +144,8 @@ let optionSelected = (answer) => {
     score++;
     txt_score.innerHTML = score;
     answer.classList.add("correctAnswer");
-  } else {
+  }
+  else {
     answer.classList.add("wrongAnswer");
     for (let index = 0; index < getAllOptions; index++) {
       if (option_Container.children[index].textContent == correctAnswer) {
