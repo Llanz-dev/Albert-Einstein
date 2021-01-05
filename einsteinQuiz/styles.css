@@ -107,26 +107,17 @@ button {
 }
 /* Timer */
 .timer {
-  position: fixed;
-  top: 0;
+  width: 30%;
+  margin: 0 auto;
   opacity: 0;
 }
 .timer.timerShow {
   opacity: 1;
 }
-.score,
-.timer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  pointer-events: none;
-}
-.score h2,
 .timer h2 {
-  border: 1px solid black;
-  border-top: none;
   padding: 0.5rem 1rem;
   background-color: #f7d794;
+  text-align: center;
 }
 h1 {
   font-size: 3rem;
@@ -232,7 +223,7 @@ button:hover {
   opacity: 0;
   pointer-events: none;
 }
-.result-container .fa-crown {
+.result-container .fas {
   font-size: 900%;
   padding: 2rem 9rem;
   color: #718093;
