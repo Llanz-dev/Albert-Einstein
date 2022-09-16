@@ -38,7 +38,7 @@ Just clone this and open the **albertEinstein.html**.
 #### There is 5 quote of Albert Einstein at the bottom of the page. Click the **Generate Quote** button to display the quote.
 ![none](screenshots/13.png?raw=true)
 
-## Acknowledgment
+## Acknowledgments
 - [Britannica](https://www.britannica.com/biography/Albert-Einstein/Legacy) 
 - [Jookie262](https://github.com/Jookie262) 
 
