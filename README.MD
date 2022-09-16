@@ -22,7 +22,7 @@ Just clone this and open the **albertEinstein.html**.
 ![none](screenshots/6.png?raw=true)
 #### Click the button.
 ![none](screenshots/7.png?raw=true)
-#### It will give you first instruction about the quiz. If you are ready then click the **continue button**.
+#### It will give you the instruction for the quiz. If you are ready then click the **continue button**.
 ![none](screenshots/8.png?raw=true) 
 #### The quiz has 30 seconds from 1 to 5.
 ![none](screenshots/9.png?raw=true)
