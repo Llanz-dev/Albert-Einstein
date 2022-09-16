@@ -4,7 +4,6 @@
 Albert-Einstein is a biography of Albert Einstein.
 
 - You can turn this into the dark mode or light mode. There is also a short quiz about Albert Einstein.
-- I use HTML, CSS, JavaScript (ES6) and fontawesome icons (CDN) to make this project.
 
 ## Built With
 - Bootstrap (5.1)
