@@ -9,6 +9,7 @@ Albert-Einstein is a biography of Albert Einstein.
 ## Built With
 - Bootstrap (5.1)
 - JavaScript (ES6)
+- Font Awesome icons
 
 ## How to Run the Project
 Just clone this and open the **albertEinstein.html**.
