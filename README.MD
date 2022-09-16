@@ -3,7 +3,6 @@
 ## Description
 Albert-Einstein is a biography of Albert Einstein.
 
-- [Britannica](https://www.britannica.com/biography/Albert-Einstein/Legacy) inspired this project.
 - I created this project due to my admiration of Albert Einstein and his excellency in physics.
 - You will learn how was the life of Albert Einstein and his achievements.
 
