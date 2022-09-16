@@ -3,7 +3,9 @@
 ## Description
 Albert-Einstein is a biography of Albert Einstein.
 
-- You can turn this into the dark mode or light mode. There is also a short quiz about Albert Einstein.
+- [Britannica](https://www.britannica.com/biography/Albert-Einstein/Legacy) inspired this project.
+- I create this project due to my admiration of Albert Einstein and his excellency in physics.
+- You will learn how was the life of Albert Einstein and his achievements.
 
 ## Built With
 - Bootstrap (5.1)
@@ -38,8 +40,8 @@ Just clone this and open the **albertEinstein.html**.
 ![none](screenshots/13.png?raw=true)
 
 ## Acknowledgment
-#### [Britannica](https://www.britannica.com/biography/Albert-Einstein/Legacy) inspired this project. 
-#
+- [Britannica](https://www.britannica.com/biography/Albert-Einstein/Legacy) 
+- [Jookie262](https://github.com/Jookie262) 
 
 ![open source](https://img.shields.io/badge/Open%20Source-%F0%9F%92%9A-white)
 ![GitHub contributors](https://img.shields.io/github/contributors/Llanz-dev/Albert-Einstein)
