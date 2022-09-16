@@ -34,7 +34,7 @@ Just clone this and open the **albertEinstein.html**.
 ![none](screenshots/13.png?raw=true)
 
 ## Acknowledgment
-#### I copy the design and content from [Britannica](https://www.britannica.com/biography/Albert-Einstein/Legacy). 
+#### [Britannica](https://www.britannica.com/biography/Albert-Einstein/Legacy) inspired this project. 
 #
 
 ![open source](https://img.shields.io/badge/Open%20Source-%F0%9F%92%9A-white)
